@@ -215,7 +215,7 @@ b,strong{ font-weight:600; }
   background:
     radial-gradient(120% 80% at 78% 12%, var(--washi-3) 0%, rgba(252,227,208,0) 58%),
     linear-gradient(180deg, var(--washi) 0%, var(--washi-2) 100%);
-  padding:clamp(30px,5vw,58px) 0 0;
+  padding:clamp(30px,5vw,58px) 0 clamp(40px,6vw,80px);
 }
 
 /* 青海波 seigaiha — olas concéntricas, muy sutiles */
@@ -233,15 +233,23 @@ b,strong{ font-weight:600; }
           mask-image:linear-gradient(to bottom, #000 58%, transparent 92%);
 }
 
-/* El Fuji cierra la portada como una línea de horizonte */
-.hero__fuji{
-  position:relative; z-index:1; display:block;
-  width:min(1320px,100%);
-  height:clamp(180px,25vw,330px);
-  object-fit:cover; object-position:center 86%;
-  margin:clamp(-24px,-2vw,-8px) auto -2px;
-  -webkit-mask-image:linear-gradient(to bottom, transparent 0, #000 32%);
-          mask-image:linear-gradient(to bottom, transparent 0, #000 32%);
+/* 青海波 · cresta de olas que une el papel con el añil.
+   Las mismas medias lunas del patrón, ahora al tamaño de un borde. */
+.crest{
+  height:clamp(34px,4.4vw,54px);
+  background-color:var(--washi-2);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='48' viewBox='0 0 96 48'%3E%3Cpath d='M0 48A48 48 0 0 1 96 48Z' fill='%231D4662'/%3E%3Cg fill='none' stroke='%23B2D9F5' stroke-opacity='.3' stroke-width='1.6'%3E%3Cpath d='M16 48a32 32 0 0 1 64 0'/%3E%3Cpath d='M32 48a16 16 0 0 1 32 0'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat:repeat-x;
+  background-position:center bottom;
+  background-size:auto 100%;
+  margin-bottom:-1px;
+}
+/* la misma cresta al revés: el añil termina en olas de papel */
+.crest--baja{
+  position:relative; z-index:2;
+  margin:clamp(26px,4vw,46px) 0 -1px;
+  background-color:var(--ai-4);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='48' viewBox='0 0 96 48'%3E%3Cpath d='M0 48A48 48 0 0 1 96 48Z' fill='%23FAE9DC'/%3E%3Cg fill='none' stroke='%231D4662' stroke-opacity='.22' stroke-width='1.6'%3E%3Cpath d='M16 48a32 32 0 0 1 64 0'/%3E%3Cpath d='M32 48a16 16 0 0 1 32 0'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 .hero__grid{
@@ -473,12 +481,25 @@ b,strong{ font-weight:600; }
   padding-bottom:clamp(40px,6vw,70px);
 }
 .cruce__mapa{ margin:0; }
+.cruce__lienzo{ position:relative; }
 .cruce__mapa img{ width:100%; filter:drop-shadow(0 18px 34px rgba(0,0,0,.34)); }
-.cruce__mapa figcaption{
-  margin-top:16px; text-align:center; font-family:var(--f-tit);
-  font-size:.82rem; letter-spacing:.16em; color:var(--mizu-3);
+
+/* Las etiquetas de los dos países, ahora en texto real y en claro */
+.mapa-tag{
+  position:absolute; transform:translate(-50%,-50%);
+  display:flex; flex-direction:column; align-items:center; gap:2px;
+  font-family:var(--f-tit); color:var(--washi);
+  font-size:clamp(.72rem,.62rem + .34vw,.92rem);
+  letter-spacing:.16em; text-transform:uppercase;
+  text-align:center; line-height:1.25; white-space:nowrap;
+  text-shadow:0 2px 10px rgba(14,44,62,.85), 0 0 3px rgba(14,44,62,.9);
 }
-.cruce__mapa figcaption span{ color:var(--washi); }
+.mapa-tag i{
+  font-style:normal; font-size:.82em; letter-spacing:.22em;
+  color:var(--mizu-3); text-transform:none;
+}
+.mapa-tag--jp{ left:37%; top:25%; }
+.mapa-tag--rd{ left:64%; top:96.5%; }
 
 .ruta{ list-style:none; margin:0; padding:0 0 0 34px; position:relative; }
 .ruta::before{
@@ -501,23 +522,14 @@ b,strong{ font-weight:600; }
 .ruta h3{ color:var(--washi); font-size:1.14rem; margin-bottom:.28em; }
 .ruta p{ margin:0; font-size:.97rem; }
 
-.ai__paisaje{
-  position:relative; display:block; width:min(760px,66%);
-  height:clamp(130px,16vw,220px);
-  object-fit:cover; object-position:left 96%;
-  margin:0 0 -2px; opacity:.9;
-  -webkit-mask-image:linear-gradient(to bottom, transparent 0, #000 42%);
-          mask-image:linear-gradient(to bottom, transparent 0, #000 42%);
-}
-
-/* franja del Caribe entre el añil y el papel */
+/* franja del Caribe: la única vez que aparece el paisaje */
 .banda-caribe{ position:relative; background:#FAE9DC; line-height:0; }
 .banda-caribe img{
   width:100%; height:clamp(190px,29vw,370px);
   object-fit:cover; object-position:center 62%;
 }
 .banda-caribe::after{
-  content:''; position:absolute; left:0; right:0; bottom:0; height:42%;
+  content:''; position:absolute; left:0; right:0; bottom:0; height:44%;
   background:linear-gradient(to bottom, rgba(251,244,231,0) 0%, var(--washi) 100%);
 }
 
@@ -751,20 +763,21 @@ select{
   position:absolute; left:8%; top:56px; font-size:1rem;
   color:var(--shu); opacity:.42;
 }
+/* El Fuji completo, sin cortes: la base de la montaña apoya justo
+   sobre el añil del pie. 2.019 = proporción del SVG una vez descontado
+   el vacío que trae debajo de la montaña (el dibujo llega al 78,4 %). */
 .cierre__fuji{
-  display:block; width:min(1150px,100%);
-  height:clamp(200px,27vw,360px);
-  object-fit:cover; object-position:center 84%;
-  margin:clamp(6px,1.5vw,22px) auto -2px;
-  -webkit-mask-image:linear-gradient(to bottom, transparent 0, #000 34%);
-          mask-image:linear-gradient(to bottom, transparent 0, #000 34%);
+  display:block; width:min(1180px,100%);
+  aspect-ratio:2.019;
+  object-fit:cover; object-position:center top;
+  margin:clamp(10px,2vw,28px) auto 0;
 }
 
 /* ─────────── footer ─────────── */
 .footer{
   position:relative; overflow:hidden;
   background:var(--ai-4); color:rgba(251,244,231,.78);
-  padding:38px 0 26px;
+  padding:38px 0 26px; margin-top:-1px;
 }
 .footer__olas{
   position:absolute; inset:0; pointer-events:none; opacity:.7;
@@ -820,7 +833,7 @@ select{
   .libro,.autor,.cruce,.pedido{ grid-template-columns:1fr; }
   .libro__portada img,.autor__foto img{ max-width:330px; margin-inline:auto; }
   .libro__cinta{ right:auto; left:calc(50% + 118px); }
-  .cruce__mapa img{ max-width:310px; margin-inline:auto; }
+  .cruce__lienzo{ max-width:330px; margin-inline:auto; }
   .recibo{ position:static; }
   .fab.is-visible{ display:flex; }
   .tate--cierre{ display:none; }
@@ -840,6 +853,8 @@ select{
   .datos{ grid-template-columns:1fr; }
   .papeleta__cuerpo{ grid-template-columns:1fr; }
   .field--half{ grid-column:1 / -1; }
+  /* en móvil se ve el paisaje completo, sin recortar palmeras ni torii */
+  .banda-caribe img{ height:auto; }
   .papeleta__cab{ gap:10px; padding:11px 16px; }
   .papeleta__jp{ white-space:nowrap; font-size:.8rem; letter-spacing:.16em; }
   .papeleta__tit{ font-size:.68rem; letter-spacing:.1em; }

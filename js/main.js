@@ -48,10 +48,19 @@ const CONFIG = {
   const fab = $('#fabWa');
   const barra = $('#progress');
 
+  const pedido = $('#pedido');
+
+  // Cuando la papeleta ya está a la vista, el botón flotante sobra
+  function papeletaVisible() {
+    if (!pedido) return false;
+    const r = pedido.getBoundingClientRect();
+    return r.top < window.innerHeight * 0.85 && r.bottom > 0;
+  }
+
   const onScroll = () => {
     const y = window.scrollY;
     if (nav) nav.classList.toggle('is-stuck', y > 12);
-    if (fab) fab.classList.toggle('is-visible', y > 520);
+    if (fab) fab.classList.toggle('is-visible', y > 520 && !papeletaVisible());
     if (barra) {
       const alto = document.documentElement.scrollHeight - window.innerHeight;
       barra.style.width = (alto > 0 ? Math.min(100, (y / alto) * 100) : 0) + '%';

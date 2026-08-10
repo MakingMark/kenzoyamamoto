@@ -16,10 +16,34 @@
 <meta property="og:locale" content="es_DO">
 
 <link rel="icon" href="assets/torii.webp">
+<link rel="apple-touch-icon" href="assets/torii.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/styles.css?v=3">
+
+<!-- Datos estructurados: ayudan a que Google muestre el libro y su precio -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": "Desde el país del sol naciente al paraíso del Caribe",
+  "alternativeHeadline": "Historia de un inmigrante japonés",
+  "isbn": "978-9945-30-628-6",
+  "bookFormat": "https://schema.org/Paperback",
+  "inLanguage": "es",
+  "numberOfPages": null,
+  "author": { "@type": "Person", "name": "Kenzo Yamamoto" },
+  "about": ["Inmigración japonesa en la República Dominicana", "Memorias", "Cultura dominico-japonesa"],
+  "offers": {
+    "@type": "Offer",
+    "price": "1200",
+    "priceCurrency": "DOP",
+    "availability": "https://schema.org/InStock",
+    "areaServed": "DO"
+  }
+}
+</script>
 </head>
 <body>
 
@@ -107,15 +131,16 @@
 
     <figure class="hero__book">
       <div class="hero__bookwrap">
-        <img src="assets/book-cover.webp" width="696" height="1150"
+        <img src="assets/book-cover.webp" width="696" height="1150" fetchpriority="high" decoding="async"
              alt="Portada del libro Desde el país del sol naciente al paraíso del Caribe, de Kenzo Yamamoto">
       </div>
       <figcaption>ISBN 978-9945-30-628-6</figcaption>
     </figure>
   </div>
-
-  <img class="hero__fuji" src="assets/fuji-ilustracion.svg" alt="" aria-hidden="true">
 </section>
+
+<!-- cresta de olas 青海波: la portada entra en el mar -->
+<div class="crest" aria-hidden="true"></div>
 
 <!-- ═══════════════════ MAR / CITA ═══════════════════ -->
 <section class="mar">
@@ -144,7 +169,7 @@
 
     <div class="libro">
       <figure class="libro__portada">
-        <img src="assets/portada.webp" loading="lazy" width="1000" height="1539"
+        <img src="assets/portada.webp" loading="lazy" width="760" height="1170"
              alt="Portada del libro: el monte Fuji bajo el sol naciente y una rama de cerezo en flor">
         <span class="libro__cinta" aria-hidden="true"></span>
       </figure>
@@ -260,9 +285,12 @@
 
     <div class="cruce">
       <figure class="cruce__mapa">
-        <img src="assets/mapas.webp" loading="lazy" width="1078" height="1868"
-             alt="Mapa de Japón y de la República Dominicana unidos por una línea que va de Yamaguchi a Dajabón">
-        <figcaption><span>日本</span> → <span>ドミニカ共和国</span></figcaption>
+        <div class="cruce__lienzo">
+          <img src="assets/mapas.webp" loading="lazy" width="760" height="1317"
+               alt="Mapa de Japón y de la República Dominicana unidos por una línea que va de Yamaguchi a Dajabón">
+          <span class="mapa-tag mapa-tag--jp"><i aria-hidden="true">日本</i>Japón</span>
+          <span class="mapa-tag mapa-tag--rd"><i aria-hidden="true">ドミニカ共和国</i>República Dominicana</span>
+        </div>
       </figure>
 
       <ol class="ruta">
@@ -290,7 +318,7 @@
     </div>
   </div>
 
-  <img class="ai__paisaje" src="assets/paisaje-ilustracion.svg" loading="lazy" alt="" aria-hidden="true">
+  <div class="crest crest--baja" aria-hidden="true"></div>
 </section>
 
 <!-- franja del Caribe: palmeras, montañas y torii -->
@@ -423,13 +451,13 @@
           <div class="field">
             <label for="nombre">Nombre y apellido <span class="req" aria-hidden="true">*</span></label>
             <input type="text" id="nombre" name="nombre" autocomplete="name" placeholder="Ej.: María Peña" required>
-            <p class="err" data-err="nombre"></p>
+            <p class="err" data-err="nombre" role="alert" aria-live="polite"></p>
           </div>
 
           <div class="field">
             <label for="telefono">Teléfono / WhatsApp <span class="req" aria-hidden="true">*</span></label>
             <input type="tel" id="telefono" name="telefono" autocomplete="tel" inputmode="tel" placeholder="Ej.: 809 555 1234" required>
-            <p class="err" data-err="telefono"></p>
+            <p class="err" data-err="telefono" role="alert" aria-live="polite"></p>
           </div>
 
           <div class="field field--half">
@@ -445,7 +473,7 @@
             <label for="entrega">¿Cómo prefieres recibirlo?</label>
             <select id="entrega" name="entrega">
               <option>Envío a domicilio</option>
-              <option>Recoger en persona</option>
+              <option>Recoger en persona (coordinamos el punto)</option>
               <option>Coordinar por WhatsApp</option>
             </select>
           </div>
@@ -480,6 +508,14 @@
           <p class="papeleta__nota">
             Se abre WhatsApp con tu pedido ya escrito. Solo tienes que presionar enviar.
           </p>
+
+          <noscript>
+            <p class="papeleta__nota">
+              Para enviar el pedido necesitas activar JavaScript, o
+              <a href="https://wa.me/18092231687" target="_blank" rel="noopener"><b>escribirnos directamente por WhatsApp</b></a>.
+            </p>
+          </noscript>
+
         </div>
       </form>
 
@@ -500,7 +536,7 @@
         <p class="recibo__total"><span>Total</span><b id="resPrecio">RD$ 1,200</b></p>
         <p class="recibo__pie">El costo del envío, si aplica, se confirma por WhatsApp. No se cobra nada en línea.</p>
 
-        <a class="btn btn--linea btn--block" id="waDirecto" href="#">Prefiero escribir directo</a>
+        <a class="btn btn--linea btn--block" id="waDirecto" href="https://wa.me/18092231687" target="_blank" rel="noopener">Prefiero escribir directo</a>
       </aside>
     </div>
   </div>
@@ -547,7 +583,7 @@
 
     <div class="faq__cta">
       <p>¿Te quedó alguna duda? Toda la información te la damos por WhatsApp.</p>
-      <a class="btn btn--shu" id="waFaq" href="#">
+      <a class="btn btn--shu" id="waFaq" href="https://wa.me/18092231687" target="_blank" rel="noopener">
         <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.36c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.24 8.21Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.02s.87 2.34.99 2.5c.12.16 1.71 2.61 4.15 3.66.58.25 1.03.4 1.39.51.58.19 1.11.16 1.53.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
         Escribir por WhatsApp
       </a>
@@ -597,6 +633,6 @@
   <span>Pedir</span>
 </a>
 
-<script src="js/main.js"></script>
+<script src="js/main.js?v=3"></script>
 </body>
 </html>

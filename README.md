@@ -96,12 +96,22 @@ del título, no en verde.
 - **Detalles editoriales** — capitulares rojas, colofón, cinta marcapáginas, papeleta
   de pedido con folio «No. 27» (por la Colonia Japonesa No. 27 donde se estableció
   la familia) y pétalos de cerezo cayendo en la portada.
+- **Crestas de olas** — las mismas medias lunas del seigaiha, ampliadas, sirven de
+  costura entre el papel y el añil: la portada entra en el mar y el añil sale a la playa.
 
 **Tipografías:** *Shippori Mincho* (un mincho japonés) para títulos y *EB Garamond*
 para el texto, que es la que más se acerca al interior del libro.
 
 > **Nota:** el sello dice 山本 (Yamamoto), la forma habitual del apellido en kanji.
 > Si el autor lo escribe de otra manera, se cambia buscando `山本` en `index.html`.
+
+---
+
+## 3 bis. Al actualizar el sitio
+
+`index.html` carga los estilos y el guion como `css/styles.css?v=3` y `js/main.js?v=3`.
+Si algún día editas esos archivos y el navegador sigue mostrando la versión vieja,
+sube el número (`?v=4`, `?v=5`…) y todos los visitantes reciben la versión nueva.
 
 ---
 
@@ -135,12 +145,15 @@ Sube **la carpeta completa**: `index.html`, `css/`, `js/` y `assets/`.
 | `book-cover.webp` | portada 3D de la cabecera y del resumen | foto entregada |
 | `author-photo.webp` | foto del autor | foto entregada |
 | `mapas.webp` | mapas de Japón y República Dominicana | imagen entregada |
-| `fuji-ilustracion.svg` | horizonte del Fuji en la portada y el cierre | tu `monte-fuji.svg` |
-| `paisaje-ilustracion.svg` | palmeras al pie de «Dos culturas» | tu `montana.svg` |
+| `fuji-ilustracion.svg` | el Fuji del cierre, apoyado en el pie | tu `monte-fuji.svg` |
 | `sakura-rama.webp` | rama de cerezo de la cabecera | tu `sakura.svg` |
 | `torii.webp` | torii de la sección de pedidos y el ícono | tu `tori.svg` |
 | `paisaje.webp` | franja de palmeras, montañas y torii | recorte de la contraportada |
 | `portada.webp` | portada plana en «El libro» | recorte de la portada |
+
+Cada paisaje aparece **una sola vez**: el Fuji cierra la página apoyado sobre el
+añil del pie, y la franja del Caribe cierra «Dos culturas». La montaña de la
+portada del libro es la única que se repite, y es la del propio libro.
 
 Los cuatro SVG que enviaste llevaban una textura de grano incrustada que Chrome
 dibuja como una rejilla de líneas visible (se comprobó también con los archivos
