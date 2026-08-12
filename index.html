@@ -1,47 +1,178 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-DO">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Desde el país del sol naciente al paraíso del Caribe — Kenzo Yamamoto</title>
 
-<meta name="description" content="Historia de un inmigrante japonés. Kenzo Yamamoto narra su vida entre Japón y la República Dominicana. RD$ 1,200 · Pide tu ejemplar por WhatsApp.">
+<!-- ═══════════════════════════════════════════════════════════════════════
+     SEO — CÓMO SE VE ESTA PÁGINA EN GOOGLE Y AL COMPARTIRLA
+
+     El dominio de producción es https://kenzoyamamoto.com y aparece en las
+     etiquetas canonical, Open Graph y en los datos estructurados de abajo,
+     además de en robots.txt y sitemap.xml.
+
+     Mientras el sitio se prueba en GitHub Pages, la etiqueta «canonical»
+     sigue apuntando a kenzoyamamoto.com a propósito: así Google entiende
+     que la copia de pruebas no es una página distinta y no la indexa
+     como contenido duplicado.
+     ═══════════════════════════════════════════════════════════════════════ -->
+
+<title>Desde el país del sol naciente al paraíso del Caribe | Kenzo Yamamoto</title>
+
+<meta name="description" content="Memorias de Kenzo Yamamoto sobre la inmigración japonesa en la República Dominicana: de Tokuyama a la Colonia Japonesa No. 27, Dajabón. RD$ 1,200.">
+
 <meta name="author" content="Kenzo Yamamoto">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#1D4662">
 
-<meta property="og:type" content="book">
-<meta property="og:title" content="Desde el país del sol naciente al paraíso del Caribe">
-<meta property="og:description" content="Historia de un inmigrante japonés que encontró en dos tierras la riqueza de una sola vida.">
-<meta property="og:image" content="assets/book-cover.webp">
-<meta property="og:locale" content="es_DO">
+<!-- Dirección oficial de la página: evita que Google la trate como duplicada -->
+<link rel="canonical" href="https://kenzoyamamoto.com/">
+<link rel="alternate" hreflang="es-do" href="https://kenzoyamamoto.com/">
+<link rel="alternate" hreflang="x-default" href="https://kenzoyamamoto.com/">
 
+<!-- Vista previa al compartir en WhatsApp, Facebook e Instagram -->
+<meta property="og:type" content="book">
+<meta property="og:site_name" content="Kenzo Yamamoto — Desde el país del sol naciente al paraíso del Caribe">
+<meta property="og:title" content="Desde el país del sol naciente al paraíso del Caribe">
+<meta property="og:description" content="Historia de un inmigrante japonés que encontró en dos tierras la riqueza de una sola vida. Memorias de Kenzo Yamamoto. RD$ 1,200.">
+<meta property="og:url" content="https://kenzoyamamoto.com/">
+<meta property="og:image" content="https://kenzoyamamoto.com/assets/book-cover.webp">
+<meta property="og:image:width" content="696">
+<meta property="og:image:height" content="1150">
+<meta property="og:image:alt" content="Portada del libro: el monte Fuji bajo el sol naciente y una rama de cerezo en flor">
+<meta property="og:locale" content="es_DO">
+<meta property="book:author" content="Kenzo Yamamoto">
+<meta property="book:isbn" content="978-9945-30-628-6">
+
+<!-- Vista previa en X / Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Desde el país del sol naciente al paraíso del Caribe">
+<meta name="twitter:description" content="Historia de un inmigrante japonés que encontró en dos tierras la riqueza de una sola vida. Memorias de Kenzo Yamamoto.">
+<meta name="twitter:image" content="https://kenzoyamamoto.com/assets/book-cover.webp">
+
+<!-- Iconos -->
 <link rel="icon" href="assets/torii.webp">
 <link rel="apple-touch-icon" href="assets/torii.webp">
+
+<!-- Tipografías: se avisa al navegador antes de tiempo para que carguen antes -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=3">
 
-<!-- Datos estructurados: ayudan a que Google muestre el libro y su precio -->
+<!-- La portada del libro es la imagen grande de la cabecera: se pide primero -->
+<link rel="preload" as="image" href="assets/book-cover.webp" fetchpriority="high">
+
+<link rel="stylesheet" href="css/styles.css?v=8">
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     DATOS ESTRUCTURADOS (schema.org)
+     Le explican a Google qué es esta página. Gracias a esto puede mostrar
+     el libro con su precio, y las preguntas frecuentes desplegables en los
+     resultados de búsqueda.
+     Si cambias el precio en js/main.js, cámbialo también aquí abajo.
+     ═══════════════════════════════════════════════════════════════════════ -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Book",
-  "name": "Desde el país del sol naciente al paraíso del Caribe",
-  "alternativeHeadline": "Historia de un inmigrante japonés",
-  "isbn": "978-9945-30-628-6",
-  "bookFormat": "https://schema.org/Paperback",
-  "inLanguage": "es",
-  "numberOfPages": null,
-  "author": { "@type": "Person", "name": "Kenzo Yamamoto" },
-  "about": ["Inmigración japonesa en la República Dominicana", "Memorias", "Cultura dominico-japonesa"],
-  "offers": {
-    "@type": "Offer",
-    "price": "1200",
-    "priceCurrency": "DOP",
-    "availability": "https://schema.org/InStock",
-    "areaServed": "DO"
-  }
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://kenzoyamamoto.com/#sitio",
+      "url": "https://kenzoyamamoto.com/",
+      "name": "Desde el país del sol naciente al paraíso del Caribe",
+      "inLanguage": "es-DO",
+      "publisher": { "@id": "https://kenzoyamamoto.com/#autor" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://kenzoyamamoto.com/#autor",
+      "name": "Kenzo Yamamoto",
+      "birthDate": "1949-11-17",
+      "birthPlace": { "@type": "Place", "name": "Tokuyama, Yamaguchi, Japón" },
+      "nationality": "Dominicana",
+      "jobTitle": "Ingeniero electromecánico y escritor",
+      "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universidad Católica Madre y Maestra" },
+      "image": "https://kenzoyamamoto.com/assets/author-photo.webp",
+      "description": "Inmigrante japonés llegado a la República Dominicana en 1956, establecido en la Colonia Japonesa No. 27 de La Vigía, Dajabón."
+    },
+    {
+      "@type": "Book",
+      "@id": "https://kenzoyamamoto.com/#libro",
+      "name": "Desde el país del sol naciente al paraíso del Caribe",
+      "alternativeHeadline": "Historia de un inmigrante japonés",
+      "url": "https://kenzoyamamoto.com/",
+      "isbn": "978-9945-30-628-6",
+      "bookEdition": "Primera edición",
+      "bookFormat": "https://schema.org/Paperback",
+      "numberOfPages": 207,
+      "inLanguage": "es",
+      "image": "https://kenzoyamamoto.com/assets/book-cover.webp",
+      "author": { "@id": "https://kenzoyamamoto.com/#autor" },
+      "about": [
+        "Inmigración japonesa en la República Dominicana",
+        "Colonias japonesas de Dajabón",
+        "Memorias y autobiografía",
+        "Cultura dominico-japonesa"
+      ],
+      "description": "El autor relata sus vivencias en Japón y en la República Dominicana, destacando las riquezas y enseñanzas que le ha brindado el privilegio de compartir dos culturas.",
+      "offers": {
+        "@type": "Offer",
+        "price": "1200",
+        "priceCurrency": "DOP",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition",
+        "areaServed": { "@type": "Country", "name": "República Dominicana" },
+        "seller": { "@id": "https://kenzoyamamoto.com/#autor" },
+        "url": "https://kenzoyamamoto.com/#pedido"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://kenzoyamamoto.com/#preguntas",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿De qué trata el libro?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Son las memorias de Kenzo Yamamoto, un inmigrante japonés que llegó de niño a la República Dominicana en 1956. El libro recorre su infancia en Tokuyama, la travesía de su familia, la vida en la Colonia Japonesa No. 27 de La Vigía, Dajabón, y lo que significó crecer entre dos culturas. Son 207 páginas que reúnen, a la vez, un testimonio de la inmigración japonesa en la República Dominicana y un retrato de la cultura dominico-japonesa." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Es una historia real?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí. Es un relato autobiográfico: el autor cuenta su propia vida y la de su familia, con fechas, lugares y personas reales. No es una novela." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta el libro?",
+          "acceptedAnswer": { "@type": "Answer", "text": "RD$ 1,200 por ejemplar. Si el pedido lleva envío, el costo depende de la provincia y se confirma por WhatsApp antes de despachar." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo pago el libro?",
+          "acceptedAnswer": { "@type": "Answer", "text": "El pago se acuerda directamente por WhatsApp. Escríbenos y te indicamos las formas disponibles para que elijas la que mejor te convenga." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Hacen envíos a todo el país?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Coordinamos envíos dentro de la República Dominicana. Escríbenos por WhatsApp con tu provincia y te decimos cómo y cuándo te llega." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo pedir el libro firmado por el autor?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí. Al hacer el pedido se marca la casilla de dedicatoria y se indica el nombre de la persona. Es ideal para regalo." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo pedir varios ejemplares?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí, se indica la cantidad en el formulario. Para pedidos de bibliotecas, escuelas o instituciones conviene escribir por WhatsApp." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo comprarlo desde fuera de la República Dominicana?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí. Escríbenos por WhatsApp indicando tu país y buscamos la mejor forma de hacerte llegar el ejemplar." }
+        }
+      ]
+    }
+  ]
 }
 </script>
 </head>
@@ -58,7 +189,7 @@
       <span class="hanko hanko--sm" aria-hidden="true">山本</span>
       <span class="nav__brandtxt">
         <strong>Desde el país del sol naciente</strong>
-        <small>Kenzo Yamamoto · 山本</small>
+        <small>Kenzo Yamamoto</small>
       </span>
     </a>
 
@@ -195,6 +326,7 @@
           <p class="colofon__t"><i aria-hidden="true">奥付</i> Ficha del libro</p>
           <dl>
             <div><dt>Autor</dt><dd>Kenzo Yamamoto</dd></div>
+            <div><dt>Páginas</dt><dd>207</dd></div>
             <div><dt>Idioma</dt><dd>Español</dd></div>
             <div><dt>Formato</dt><dd>Libro impreso</dd></div>
             <div><dt>ISBN</dt><dd>978-9945-30-628-6</dd></div>
@@ -203,10 +335,7 @@
           </dl>
         </div>
 
-        <a class="btn btn--shu" href="#pedido">
-          <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.36c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.24 8.21Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.02s.87 2.34.99 2.5c.12.16 1.71 2.61 4.15 3.66.58.25 1.03.4 1.39.51.58.19 1.11.16 1.53.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
-          Quiero un ejemplar
-        </a>
+        
       </div>
     </div>
   </div>
@@ -227,7 +356,7 @@
     <div class="autor">
       <figure class="autor__foto">
         <img src="assets/author-photo.webp" loading="lazy" width="290" height="302"
-             alt="Kenzo Yamamoto escribiendo en su computadora, rodeado de vegetación">
+             alt="Kenzo Yamamoto, autor dominico-japonés, escribiendo en su computadora rodeado de vegetación">
         <span class="hanko hanko--foto" aria-hidden="true">山本</span>
         <figcaption>Kenzo Yamamoto</figcaption>
       </figure>
@@ -280,14 +409,16 @@
 
     <p class="lede-claro">
       De una isla del Pacífico a una isla del Caribe. Este es el recorrido que dio origen
-      a la historia que cuenta el libro.
+      a la historia que cuenta el libro: el de una de las familias de la
+      <b>inmigración japonesa en la República Dominicana</b>, que en 1956 se
+      estableció en las colonias agrícolas del noroeste del país.
     </p>
 
     <div class="cruce">
       <figure class="cruce__mapa">
         <div class="cruce__lienzo">
           <img src="assets/mapas.webp" loading="lazy" width="760" height="1317"
-               alt="Mapa de Japón y de la República Dominicana unidos por una línea que va de Yamaguchi a Dajabón">
+               alt="Mapa de la inmigración japonesa a la República Dominicana: la ruta de Yamaguchi, Japón, hasta Dajabón">
           <span class="mapa-tag mapa-tag--jp"><i aria-hidden="true">日本</i>Japón</span>
           <span class="mapa-tag mapa-tag--rd"><i aria-hidden="true">ドミニカ共和国</i>República Dominicana</span>
         </div>
@@ -323,7 +454,7 @@
 
 <!-- franja del Caribe: palmeras, montañas y torii -->
 <div class="banda-caribe" aria-hidden="true">
-  <img src="assets/paisaje.webp" loading="lazy" width="1600" height="610" alt="">
+  <img src="assets/paisaje.webp" loading="lazy" width="1400" height="534" alt="">
 </div>
 
 <!-- ═══════════════════ 四 · POR QUÉ LEERLO ═══════════════════ -->
@@ -342,7 +473,7 @@
       <article>
         <span class="kanji" aria-hidden="true">記憶</span>
         <p class="romaji" aria-hidden="true">kioku · memoria</p>
-        <h3>Memoria de la inmigración japonesa</h3>
+        <h3>Memoria de la inmigración japonesa en la República Dominicana</h3>
         <p>El testimonio de primera mano de una de las familias que llegaron a las colonias japonesas de la República Dominicana.</p>
       </article>
       <article>
@@ -536,6 +667,9 @@
         <p class="recibo__total"><span>Total</span><b id="resPrecio">RD$ 1,200</b></p>
         <p class="recibo__pie">El costo del envío, si aplica, se confirma por WhatsApp. No se cobra nada en línea.</p>
 
+        <!-- El enlace real lo escribe js/main.js desde CONFIG.whatsapp.
+             Este href es el respaldo por si el JavaScript no carga: si cambia
+             el número, buscar «18092231687» en este archivo (3 apariciones). -->
         <a class="btn btn--linea btn--block" id="waDirecto" href="https://wa.me/18092231687" target="_blank" rel="noopener">Prefiero escribir directo</a>
       </aside>
     </div>
@@ -556,6 +690,20 @@
 
     <div class="faq">
       <details open>
+        <summary>¿De qué trata el libro?</summary>
+        <p>Son las memorias de Kenzo Yamamoto, un inmigrante japonés que llegó de niño a
+        la República Dominicana en 1956. El libro recorre su infancia en Tokuyama, la
+        travesía de su familia, la vida en la Colonia Japonesa No.&nbsp;27 de La Vigía,
+        Dajabón, y lo que significó crecer entre dos culturas. Son 207 páginas que reúnen, a la vez, un testimonio
+        de la <b>inmigración japonesa en la República Dominicana</b> y un retrato de la
+        <b>cultura dominico-japonesa</b>.</p>
+      </details>
+      <details>
+        <summary>¿Es una historia real?</summary>
+        <p>Sí. Es un relato autobiográfico: el autor cuenta su propia vida y la de su
+        familia, con fechas, lugares y personas reales. No es una novela.</p>
+      </details>
+      <details>
         <summary>¿Cuánto cuesta el libro?</summary>
         <p><b id="faqPrecio">RD$ 1,200</b> por ejemplar. Si el pedido lleva envío, el costo depende de la provincia y te lo confirmamos por WhatsApp antes de despachar.</p>
       </details>
@@ -591,20 +739,6 @@
   </div>
 </section>
 
-<!-- ═══════════════════ CIERRE ═══════════════════ -->
-<section class="cierre">
-  <div class="wrap center">
-    <p class="tate tate--cierre" aria-hidden="true">一生の富</p>
-    <p class="cap__kicker">Un umbral entre dos mundos</p>
-    <h2>Dos tierras, la riqueza<br>de una sola vida.</h2>
-    <a class="btn btn--shu btn--lg" href="#pedido">
-      <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.36c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.24 8.21Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.02s.87 2.34.99 2.5c.12.16 1.71 2.61 4.15 3.66.58.25 1.03.4 1.39.51.58.19 1.11.16 1.53.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
-      Pedir mi ejemplar · <b id="cierrePrecio">RD$ 1,200</b>
-    </a>
-  </div>
-  <img class="cierre__fuji" src="assets/fuji-ilustracion.svg" loading="lazy" alt="" aria-hidden="true">
-</section>
-
 <!-- ═══════════════════ FOOTER ═══════════════════ -->
 <footer class="footer">
   <div class="footer__olas" aria-hidden="true"></div>
@@ -633,6 +767,6 @@
   <span>Pedir</span>
 </a>
 
-<script src="js/main.js?v=3"></script>
+<script src="js/main.js?v=8"></script>
 </body>
 </html>

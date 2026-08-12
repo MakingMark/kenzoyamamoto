@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Mapa del sitio. Como es una sola página, solo hay una dirección.
+  «lastmod» es la última vez que se cambió el contenido: conviene
+  actualizar esa fecha cuando se publique una versión nueva.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://kenzoyamamoto.com/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+
+    <image:image>
+      <image:loc>https://kenzoyamamoto.com/assets/book-cover.webp</image:loc>
+      <image:title>Desde el país del sol naciente al paraíso del Caribe — Kenzo Yamamoto</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://kenzoyamamoto.com/assets/author-photo.webp</image:loc>
+      <image:title>Kenzo Yamamoto, autor del libro</image:title>
+    </image:image>
+  </url>
+</urlset>

@@ -745,39 +745,11 @@ select{
 }
 .faq__cta p{ margin:0; font-family:var(--f-tit); font-size:1.04rem; color:var(--ai); max-width:36ch; }
 
-/* ─────────── cierre ─────────── */
-.cierre{
-  position:relative; overflow:hidden; text-align:center;
-  background:
-    radial-gradient(90% 70% at 50% 8%, var(--washi-3) 0%, rgba(252,227,208,0) 60%),
-    var(--washi-2);
-  padding:clamp(60px,7.5vw,100px) 0 0;
-}
-.cierre .cap__kicker{ margin-bottom:.7em; }
-.cierre h2{
-  font-size:clamp(1.8rem,1.1rem + 2.6vw,3rem); color:var(--ai);
-  text-wrap:balance; margin-bottom:.1em;
-}
-.cierre .btn{ margin-top:1.6em; }
-.tate--cierre{
-  position:absolute; left:8%; top:56px; font-size:1rem;
-  color:var(--shu); opacity:.42;
-}
-/* El Fuji completo, sin cortes: la base de la montaña apoya justo
-   sobre el añil del pie. 2.019 = proporción del SVG una vez descontado
-   el vacío que trae debajo de la montaña (el dibujo llega al 78,4 %). */
-.cierre__fuji{
-  display:block; width:min(1180px,100%);
-  aspect-ratio:2.019;
-  object-fit:cover; object-position:center top;
-  margin:clamp(10px,2vw,28px) auto 0;
-}
-
 /* ─────────── footer ─────────── */
 .footer{
   position:relative; overflow:hidden;
   background:var(--ai-4); color:rgba(251,244,231,.78);
-  padding:38px 0 26px; margin-top:-1px;
+  padding:44px 0 26px;
 }
 .footer__olas{
   position:absolute; inset:0; pointer-events:none; opacity:.7;
@@ -836,7 +808,6 @@ select{
   .cruce__lienzo{ max-width:330px; margin-inline:auto; }
   .recibo{ position:static; }
   .fab.is-visible{ display:flex; }
-  .tate--cierre{ display:none; }
 }
 
 @media (max-width:640px){
@@ -875,4 +846,26 @@ select{
     animation-duration:.001ms !important; animation-iteration-count:1 !important;
     transition-duration:.001ms !important;
   }
+}
+
+
+/* ═══════════════ IMPRESIÓN ═══════════════
+   Si alguien imprime la página o la guarda en PDF: fuera adornos,
+   fondos y botones; queda el texto, la ficha del libro y el contacto. */
+@media print{
+  .nav, .fab, .petals, .crest, .banda-caribe, .hero__sakura,
+  .hero__seigaiha, .mar__olas, .ai__olas, .pedido__shippo,
+  .pedido__torii, .footer__olas, .papeleta, .skip-link{ display:none !important; }
+
+  body{ background:#fff; color:#000; font-size:11pt; }
+  .section, .mar, .hero{ padding:14pt 0; background:#fff !important; color:#000 !important; }
+  .section--ai, .mar, .footer{ background:#fff !important; color:#000 !important; }
+  .cap h2, .cap--claro h2, .ruta h3, .recibo h3{ color:#000 !important; }
+  .cap__num, .kanji, .capitular::first-letter{ color:#666 !important; }
+  .hero__bookwrap{ width:180px; animation:none; }
+  .recibo{ background:#fff !important; color:#000 !important; box-shadow:none; border:1px solid #999; }
+  .recibo__list span, .recibo__pie, .recibo__sub{ color:#333 !important; }
+  a[href^="http"]::after{ content:" (" attr(href) ")"; font-size:9pt; color:#555; }
+  .faq details{ break-inside:avoid; }
+  .faq details p{ display:block !important; }
 }

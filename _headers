@@ -1,0 +1,36 @@
+# ═══════════════════════════════════════════════════════════════════
+#  Cabeceras HTTP para Netlify (también las entiende Cloudflare Pages).
+#  Si publicas en otro hosting, este archivo simplemente se ignora.
+#
+#  Sirven para dos cosas: que el sitio cargue rápido en las visitas
+#  siguientes (caché) y para cerrarle puertas a ataques comunes.
+# ═══════════════════════════════════════════════════════════════════
+
+/*
+  # Impide que otra web meta el sitio dentro de un marco (clickjacking)
+  X-Frame-Options: SAMEORIGIN
+  # Impide que el navegador «adivine» el tipo de archivo
+  X-Content-Type-Options: nosniff
+  # No se filtra la dirección completa al salir hacia otro sitio
+  Referrer-Policy: strict-origin-when-cross-origin
+  # La página no necesita cámara, micrófono ni ubicación
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
+# El HTML se revisa siempre, para que los cambios se vean al momento
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/404.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Las imágenes casi nunca cambian: un año en caché
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Estilos y guion llevan ?v=N en el HTML; al subir ese número se
+# recargan solos, así que también pueden quedarse un año guardados
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/js/*
+  Cache-Control: public, max-age=31536000, immutable

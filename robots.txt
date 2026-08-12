@@ -1,0 +1,6 @@
+# Permitimos que todos los buscadores entren y lo indexen todo.
+User-agent: *
+Allow: /
+
+# Mapa del sitio: le dice a Google qué páginas hay.
+Sitemap: https://kenzoyamamoto.com/sitemap.xml

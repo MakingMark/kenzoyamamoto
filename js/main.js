@@ -30,7 +30,7 @@ const CONFIG = {
   const total = (cant) => (hayPrecio ? fmt(Number(CONFIG.precio) * cant) : 'A confirmar');
 
   // Todos los sitios donde aparece el precio unitario
-  ['navPrecio', 'heroPrecio', 'fichaPrecio', 'faqPrecio', 'resUnitario', 'cierrePrecio'].forEach((id) => {
+  ['navPrecio', 'heroPrecio', 'fichaPrecio', 'faqPrecio', 'resUnitario'].forEach((id) => {
     const el = document.getElementById(id);
     if (el) el.textContent = hayPrecio ? fmt(CONFIG.precio) : 'Consulta el precio';
   });
